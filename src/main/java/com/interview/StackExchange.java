@@ -17,7 +17,9 @@ public class StackExchange {
     public List<String> getSiteNames() {
         HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(
                 HttpClientBuilder.create().build());
+        //add Connection Timeout
         clientHttpRequestFactory.setConnectTimeout(60*1000);
+        //add Read Timeout
         clientHttpRequestFactory.setReadTimeout(60*1000);
 
         RestTemplate restTemplate = new RestTemplate(clientHttpRequestFactory);
